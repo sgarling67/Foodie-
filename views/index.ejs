@@ -1,0 +1,75 @@
+<% include partials/header %>
+
+<div class="container">
+
+    <h1><%= title %></h1>
+
+    <ul>
+        <% foods.forEach(function (food) { %>
+            <li>
+                <%= food.name %>
+                <a href="#" class="updateFood" data-id="<%= food._id %>">Update</a>
+                <a href="#" class="deleteFood" data-id="<%= food._id %>">Delete</a>
+            </l1>
+            <ul>
+                <li>Description: <%= food.description %></li>
+                <li>Category: <%= food.category %></li>
+                <li>Serving Size: <%= food.serving_size %> <%= food.serving_size_units %></li>
+                <li>Calories per Serving: <%= food.calories_per_SS %></li>
+                <li>Meal: <%= food.meal %></li>
+            </ul>
+        <% }) %>
+    </ul>
+
+    <h2>Add Food</h2>
+
+    <% if (errors != undefined) { %>
+        <ul>
+        <% errors.forEach(function(error) { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+        </ul>
+    <% } %>
+
+    <form method="POST" action="/foods/add">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Apple">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" placeholder="ranges from greens to reds, slight roundish shape, most are sweet to eat">
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category" placeholder="Fruit">
+        </div>
+
+        <div class="form-group">
+            <label for="serving_size">Serving Size</label>
+            <input type="text" name="serving_size" id="serving_size" placeholder="1">
+        </div>
+
+        <div class="form-group">
+            <label for="serving_size_units">Serving Size Units</label>
+            <input type="text" name="serving_size_units" id="serving_size_units" placeholder="apple">
+        </div>
+
+        <div class="form-group">
+            <label for="calories_per_SS">Calories per Serving</label>
+            <input type="text" name="calories_per_SS" id="calories_per_SS" placeholder="95">
+        </div>
+
+        <div class="form-group">
+            <label for="meal">Meal</label>
+            <input type="text" name="meal" id="meal" placeholder="snack">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+<% include partials/footer %>
