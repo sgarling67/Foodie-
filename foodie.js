@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 var path = require('path');
 var expressValidator = require('express-validator')
 var mongojs = require('mongojs')
-var db = mongojs('foods', ['foods'])
+var db = mongojs(process.env.MONGODB_URI, ['foods'])
 var ObjectId = mongojs.ObjectId
 
 var app = express()
