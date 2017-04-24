@@ -1,10 +1,10 @@
 {
-  "name": "node-express-mongo-sample",
+  "name": "foodie-project",
   "version": "1.0.0",
-  "description": "Sample app using node mongo and express",
-  "main": "app.js",
+  "description": "Food Description Storage App",
+  "main": "foodie.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node foodie.js"
   },
   "engines": {
     "node": "4.0.0"
